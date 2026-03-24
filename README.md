@@ -77,11 +77,16 @@ The output files will be located in the `/dist` directory (or as configured in y
 ```
 your-repo-name/
 │
-├── main.js            # Electron main process
-├── preload.js         # Preload script (if used)
-├── renderer/          # Frontend UI files
-├── package.json       # Project configuration
-└── node_modules/      # Dependencies
+├── main.js              # Electron main process
+├── preload.js           # Preload script — exposes IPC API to renderer
+├── downloader.py        # Python backend — invokes yt-dlp and streams events
+├── index.html           # App shell — loads CSS and JS from renderer/
+├── renderer/
+│   ├── style.css        # All styles and CSS variables
+│   └── renderer.js      # UI logic — handles events, download flow, logging
+├── ffmpeg/              # Bundled ffmpeg binary
+├── package.json         # Project configuration
+└── node_modules/        # Dependencies
 ```
 
 ---
