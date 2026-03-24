@@ -1,0 +1,31 @@
+{
+  "name": "lazy-yt-downloader",
+  "version": "1.0.0",
+  "description": "YouTube Downloader - LazyBonesSoftware",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "build:win": "electron-builder --win",
+    "build:mac": "electron-builder --mac"
+  },
+  "build": {
+    "appId": "com.lazybonesoftware.ytdownloader",
+    "productName": "Lazy YT Downloader",
+    "extraResources": [
+      { "from": "downloader.py", "to": "downloader.py" },
+      { "from": "ffmpeg", "to": "ffmpeg", "filter": ["**/*"] }
+    ],
+    "win": {
+      "target": "nsis",
+      "icon": "assets/icon.ico"
+    },
+    "mac": {
+      "target": "dmg",
+      "icon": "assets/icon.icns"
+    }
+  },
+  "devDependencies": {
+    "electron": "^28.0.0",
+    "electron-builder": "^24.0.0"
+  }
+}
