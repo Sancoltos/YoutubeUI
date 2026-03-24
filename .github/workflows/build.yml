@@ -23,6 +23,8 @@ jobs:
         run: npm ci
 
       - name: Build Windows
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: npm run build:win
 
       - name: Upload Windows artifact
@@ -53,6 +55,8 @@ jobs:
         run: npm ci
 
       - name: Build macOS
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: npm run build:mac
 
       - name: Upload macOS artifact
